@@ -11,11 +11,14 @@ contract DeployGeomeanOracle is Script {
     function setUp() public {}
 
     function run() public returns (IGeomeanOracle geomeanOracle) {
+        address poolManager = vm.envAddress("PoolManager");
+
         vm.startBroadcast();
 
-        geomeanOracle = new GeomeanOracle();
+        geomeanOracle = new GeomeanOracle(poolManager);
         console2.log("GeomeanOracle", address(geomeanOracle));
-
+        console2.log("PoolManager", poolManager);
+        
         vm.stopBroadcast();
     }
 }

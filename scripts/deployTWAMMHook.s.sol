@@ -11,9 +11,13 @@ contract DeployTWAMMHook is Script {
     function setUp() public {}
 
     function run() public returns (ITWAMM twammHook) {
-        vm.startBroadcast();
+        IPoolManager poolManager = IPoolManager(vm.envAddress("PoolManager"));
+        uint256 expirationInterval = vm.envUint("ExpirationInterval");
+        console2.log("PoolManager", address(poolManager));
+        console2.log("ExpirationInterval", expirationInterval);
 
-        twammHook = new TWAMM();
+        vm.startBroadcast();
+        twammHook = new TWAMM(poolManager, expirationInterval);
         console2.log("TWAMMHook", address(twammHook));
 
         vm.stopBroadcast();
