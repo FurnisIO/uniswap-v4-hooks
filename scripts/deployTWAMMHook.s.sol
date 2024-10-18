@@ -4,6 +4,7 @@ pragma solidity ^0.8.20;
 import "forge-std/Script.sol";
 import {TWAMM} from "../contracts/hooks/examples/TWAMM.sol";
 import {ITWAMM} from "../contracts/interfaces/ITWAMM.sol";
+import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
 
 import "forge-std/console2.sol";
 
