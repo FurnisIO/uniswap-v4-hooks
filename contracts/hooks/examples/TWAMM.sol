@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import {ITWAMM} from "../../interfaces/ITWAMM.sol";
-import {IPoolManager} from "../../interfaces/IPoolManager.sol";
+import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
 
 contract TWAMM is ITWAMM {
     IPoolManager public poolManager;
